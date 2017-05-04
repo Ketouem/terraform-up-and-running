@@ -1,17 +1,8 @@
-variable "server_port" {
-  description = "The port on which the HTTP server will be exposed"
-  default = 8080
-}
-
-output "elb_dns_name" {
-  value = "${aws_elb.example.dns_name}"
-}
-
-data "aws_availability_zones" "all" {}
-
 provider "aws" {
   region = "us-east-1"
 }
+
+data "aws_availability_zones" "all" {}
 
 resource "aws_launch_configuration" "example" {
   image_id = "ami-40d28157"
